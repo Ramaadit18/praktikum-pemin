@@ -54,5 +54,5 @@
      ![Hasil Screenshot delete](../prak2/img18.jpg) <br>
   l. Untuk menghapus semua buku dengan parameter tertentu, kita dapat menjalankan command ```db.books.deleteMany({argument})```. Contohnya pada gambar berikut: <br>
      ![Hasil Screenshot delete](../prak2/img19.jpg) <br>
-  Untuk memastikan hasil dari proses CRUD, kita dapat melakukan list seluruh buku dengan command ```db.books.find()``` atau buku tertentu saja dengan command ```db.books.find(argument)```
+  Untuk memastikan hasil dari proses CRUD, kita dapat melakukan list seluruh buku dengan command ```db.books.find()``` atau buku tertentu saja dengan command ```db.books.find(argument)```<br>
      ![Hasil Screenshot delete](../prak2/img20.jpg) <br>
