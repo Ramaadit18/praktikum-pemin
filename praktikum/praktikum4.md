@@ -15,14 +15,14 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
       return 'GET';
       });
       ```
-      (gambar)<br>
-      (gambar)<br>
+      ![Hasil Screenshot](../prak4/img1.jpg)<br>
       Setelah itu coba jalankan aplikasi dengan command,<br>
 
       ```
       php -S localhost:8000 -t public
       ```
-      (gambar)<br>
+      ![Hasil Screenshot](../prak4/img2.jpg)<br>
+      ![Hasil Screenshot](../prak4/img3.jpg)<br>
 
   2. POST, PUT, PATCH, DELETE, dan OPTIONS <br>
   Sama halnya saat menambahkan method GET, kita dapat menambahkan methode POST, PUT, PATCH, DELETE, dan OPTIONS pada file web.php dengan code seperti ini,<br>
@@ -45,20 +45,21 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
       return 'OPTIONS';
       });
       ```
+      ![Hasil Screenshot](../prak4/img4.jpg)<br>
 
       Setelah selesai menambahkan route untuk method POST, PUT, PATCH, DELETE, dan OPTIONS, kita dapat menjalankan server seperti pada saat percobaan GET. Setelah server berhasil menyala, kita dapat membuka aplikasi <u>Postman</u> atau <u>Insomnia</u> atau kita juga dapat menggunakan PowerShell (Windows) / Terminal (Linux atau Mac) untuk melakukan request ke server. Kita juga dapat menggunakan ekstensi <u>Thunder Client</u> pada VSCode, tetapi pada percobaan kali ini kita akan menggunakan postman.<br>
 
   - Buka aplikasi Postman. <br>
-  (gambar)<br>
+  ![Hasil Screenshot](../prak4/img5.jpg)<br>
   - Membuat request dengan menekan tombol "+" di bawah kolom search. <br>
-  (gambar)<br>
+  ![Hasil Screenshot](../prak4/img6.jpg)<br>
   - Setelah itu kita dapat memasukkan method dan url yang dituju. <br>
-  (gambar)<br>
-  (gambar)<br><br>
+  ![Hasil Screenshot](../prak4/img8.jpg)<br>
+  ![Hasil Screenshot](../prak4/img9.jpg)<br><br>
 
   3. Migrasi Database<br>
   - Sebelum melakukan migrasi database pastikan server database aktif kemudian pastikan sudah membuat database dengan nama ```lumenapi``` <br>
-  (gambar)<br>
+  ![Hasil Screenshot](../prak4/img10.jpg)<br>
 
   - Kemudian ubah konfigurasi database pada file .env   menjadi seperti ini <br>
       ```
@@ -69,7 +70,7 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
       DB_USERNAME=root
       DB_PASSWORD=<<password masing-masing>>
       ```
-      (gambar)<br>
+      ![Hasil Screenshot](../prak4/img11.jpg)<br>
 
   - Setelah mengubah konfigurasi pada file .env, kita juga perlu menghidupkan beberapa library bawaan dari lumen dengan membuka file app.php pada folder bootstrap dan mengubah baris ini, <br>
       ```
@@ -81,14 +82,15 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
       $app->withFacades();
       $app->withEloquent();
       ```
-      (gambar) <br>
+      ![Hasil Screenshot](../prak4/img12.jpg) <br>
   - Setelah itu jalankan command berikut untuk membuat file migration,<br>
       ```
       php artisan make:migration create_users_table # membuat migrasi untuk tabel users
 
       php artisan make:migration create_products_table # membuat migrasi untuk tabel products
       ```
-      (gambar) <br>
+      ![Hasil Screenshot](../prak4/img13.jpg) <br>
+
       Setelah menjalankan 2 syntax diatas akan terbuat 2 file pada folder ```database/migrations``` dengan format YYYY_MM_DD_HHmmss_nama_migrasi. Pada file migrasi kita akan menemukan fungsi up() dan fungsi down(), fungsi up() akan digunakan pada saat kita melakukan migrasi, fungsi down() akan digunakan saat kita ingin me-rollback migrasi. <br>
 
   - Ubah fungsi up pada file migrasi ```create_users_table``` <br>
@@ -117,7 +119,7 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
       }
     ...
     ```
-  (gambar) <br>
+    ![Hasil Screenshot](../prak4/img14.jpg) <br>
 
 - Ubah fungsi up pada file migrasi ```create_products_table``` <br>
   ```
@@ -148,10 +150,13 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
       }
     ...
   ```
-  (gambar) <br>
+  ![Hasil Screenshot](../prak4/img15.jpg) <br>
 
-- php artisan migrate
+- Kemudian jalankan command,
     ```
     php artisan migrate
     ```
-    (gambar) <br>
+    ![Hasil Screenshot](../prak4/img16.jpg) <br>
+
+    Berikut adalah tampilan pada database admin saat migrasi telah berhasil: <br>
+    ![Hasil Screenshot](../prak4/img17.jpg)<br>
