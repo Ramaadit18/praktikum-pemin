@@ -1,19 +1,21 @@
-# Dasar Teori 
+# Register Authentication & Authorization
 
-## Authentication
+## Dasar Teori 
+
+### Authentication
 Otentifikasi adalah proses untuk mengenali identitas dengan mekanisme pengasosiasian permintaan yang masuk dengan satu set kredensial pengidentifikasi. Kredensial yang diberikan akan dibandingkan dengan database informasi pengguna yang berwenang di dalam sistem operasi lokal atau server otentifikasi.
 
-## Token
+### Token
 Token merupakan nilai yang digunakan untuk mendapatkan akses ke sumber daya yang dibatasi secara elektronik. Penggunaan token ditujukan pada web service yang
 tidak menyimpan state yang berkaitan dengan penggunaan aplikasi (stateless) seperti session.
 
-## Authorization
+### Authorization
 Authorization merupakan proses pemberian hak istimewa yang dilakukan setelah proses authentication. Setelah pengguna diidentifikasi pada proses authentication,
 authorization akan memberikan hak istimewa dan tindakan yang diizinkan kepada pengguna yang ditentukan.
 
-# Langkah Percobaan 
+## Langkah Percobaan 
 
-## Register
+### Register
 1. Pastikan terdapat tabel users yang dibuat menggunakan migration pada bab 3 Basic Routing dan Migration. Berikut informasi kolom yang harus ada :
 
     <table>
@@ -137,7 +139,7 @@ authorization akan memberikan hak istimewa dan tindakan yang diizinkan kepada pe
 
     ![Hasil Screendhot](../prak8/img5.jpg) <br>
 
-## Authentication
+### Authentication
 1. Buatlah fungsi login(Request $request) pada file AuthController.php : 
 
     ```javascript
@@ -205,7 +207,7 @@ authorization akan memberikan hak istimewa dan tindakan yang diizinkan kepada pe
 
     ![Hasil Screendhot](../prak8/img8.jpg) <br>
 
-## Token 
+### Token 
 1. Jalankan perintah berikut untuk membuat migrasi baru: 
 
     ```javascript
@@ -356,7 +358,7 @@ yang didapat ke notepad :
   ![Hasil Screendhot](../prak8/img14.jpg) <br>
 
 
-## Authorization
+### Authorization
 1. Buatlah file Authorization.php pada folder App/Http/Middleware dan isilah dengan
 baris berikut : 
   
