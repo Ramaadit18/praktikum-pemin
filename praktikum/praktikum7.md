@@ -56,7 +56,7 @@ aktif kemudian pastikan sudah membuat database dengan nama ```lumenpost```
 
 2. Kemudian ubah konfigurasi database pada file .env menjadi seperti berikut :
 
-    ```
+    ```javascript
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
@@ -70,12 +70,12 @@ aktif kemudian pastikan sudah membuat database dengan nama ```lumenpost```
 beberapa library bawaan dari lumen dengan membuka file app.php pada folder
 bootstrap dan mengubah baris ini : 
 
-    ```
+    ```javascript
     // $app->withFacades();
     // $app->withEloquent();
     ```
     menjadi : 
-    ```
+    ```javascript
     $app->withFacades();
     $app->withEloquent();
     ```
@@ -83,7 +83,7 @@ bootstrap dan mengubah baris ini :
 
 4. Setelah itu jalankan command berikut untuk membuat file migration :
 
-    ```
+    ```javascript
     php artisan make:migration create_posts_table
     php artisan make:migration create_comments_table
     php artisan make:migration create_tags_table
@@ -93,7 +93,7 @@ bootstrap dan mengubah baris ini :
 
 5. Ubah fungsi ```up()``` pada file ```migrasi create_post_table``` : 
 
-    ```
+    ```javascript
     #sebelumnya
     ...
     public function up()
@@ -121,7 +121,7 @@ bootstrap dan mengubah baris ini :
 
 6. Ubah fungsi ```up()``` pada file ```create_comments_table``` : 
 
-    ```
+    ```javascript
     #sebelumnya
     ...
     public function up()
@@ -150,7 +150,7 @@ bootstrap dan mengubah baris ini :
 
 7. Ubah fungsi ```up()``` pada file ```create_tags_table``` :
 
-    ```
+    ```javascript
     #sebelumnya
     ...
     public function up()
@@ -177,7 +177,7 @@ bootstrap dan mengubah baris ini :
 
 8. Ubah fungsi ```up()``` pada file ```create_post_tag_table``` :
 
-    ```
+    ```javascript
     #sebelumnya
     ...
     public function up()
@@ -205,7 +205,7 @@ bootstrap dan mengubah baris ini :
 
 9. Kemudian jalankan command : 
     
-    ```
+    ```javascript
     php artisan migrate
     ```
     ![Hasil Screenshot](../prak7/img9.jpg) <br>
@@ -214,7 +214,7 @@ bootstrap dan mengubah baris ini :
 
 1. Buatlah file dengan nama Post.php dan isi dengan baris kode berikut : 
 
-    ```
+    ```javascript
     <?php
 
     namespace App\Models;
@@ -242,7 +242,7 @@ bootstrap dan mengubah baris ini :
 
 2. Buatlah file dengan nama Comment.php dan isi dengan baris kode berikut : 
     
-    ```
+    ```javascript
     <?php
 
     namespace App\Models;
@@ -270,7 +270,7 @@ bootstrap dan mengubah baris ini :
 
 3. Buatlah file dengan nama Tag.php dan isi dengan baris kode berikut :
 
-    ```
+    ```javascript
     <?php
 
     namespace App\Models;
@@ -300,7 +300,7 @@ bootstrap dan mengubah baris ini :
 
 1. Tambahkan fungsi comments() pada file Post.php : 
     
-    ```
+    ```javascript
     <?php
 
     namespace App\Models;
@@ -320,7 +320,7 @@ bootstrap dan mengubah baris ini :
 
 2. Tambahkan fungsi post() dan atribut postId pada $fillable pada file Comment.php : 
     
-    ```
+    ```javascript
     <?php
 
     namespace App\Models;
@@ -349,7 +349,7 @@ bootstrap dan mengubah baris ini :
 
 3. Buatlah file PostController.php dan isilah dengan baris kode berikut : 
     
-    ```
+    ```javascript
     <?php
 
     namespace App\Http\Controllers;
@@ -403,7 +403,7 @@ bootstrap dan mengubah baris ini :
 
 4. Buatlah file CommentController.php dan isilah dengan baris kode berikut :
     
-    ```
+    ```javascript
     <?php
 
     namespace App\Http\Controllers;
@@ -442,7 +442,7 @@ bootstrap dan mengubah baris ini :
 
 5. Tambahkan baris berikut pada routes/web.php : 
     
-    ```
+    ```javascript
     <?php
     ...
     $router->group(['prefix' => 'posts'], function () use ($router) {
@@ -470,7 +470,7 @@ bootstrap dan mengubah baris ini :
 ### Relasi Many-to-Many 
 
 1. Tambahkan fungsi tags() pada file Post.php :
-    ```
+    ```javascript
     <?php
 
     namespace App\Models;
@@ -488,7 +488,7 @@ bootstrap dan mengubah baris ini :
     ![Hasil Screenshot](../prak7/img21.jpg) <br>
 
 2. Tambahkan fungsi posts() pada file Tag.php :
-    ```
+    ```javascript
     <?php
 
     namespace App\Models;
@@ -505,7 +505,7 @@ bootstrap dan mengubah baris ini :
     ![Hasil Screenshot](../prak7/img22.jpg) <br>
 
 3. Buatlah file TagController.php dan isilah dengan baris kode berikut :
-    ```
+    ```javascript
     <?php
 
     namespace App\Http\Controllers;
@@ -543,7 +543,7 @@ bootstrap dan mengubah baris ini :
 
 4. Tambahkan fungsi addTag dan response tags pada PostController.php :
 
-    ```
+    ```javascript
     <?php
 
     namespace App\Http\Controllers;
@@ -585,7 +585,7 @@ bootstrap dan mengubah baris ini :
 
 5. Tambahkan baris berikut pada routes/web.php :
     
-    ```
+    ```javascript
     $router->group(['prefix' => 'posts'], function () use ($router) {
         $router->post('/', ['uses' => 'PostController@createPost']);
         $router->get('/{id}', ['uses' => 'PostController@getPostById']);

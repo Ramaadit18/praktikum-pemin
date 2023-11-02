@@ -9,7 +9,7 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
 # Langkah Percobaan
   1. GET <br>
   Untuk menambahkan endpoint dengan method GET pada aplikasi kita, kita dapat mengunjungi file web.php pada folder routes. Kemudian tambahkan baris ini pada akhir file <br>
-      ```
+      ```javascript
       ...
       $router->get('/get', function () {
       return 'GET';
@@ -27,7 +27,7 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
   2. POST, PUT, PATCH, DELETE, dan OPTIONS <br>
   Sama halnya saat menambahkan method GET, kita dapat menambahkan methode POST, PUT, PATCH, DELETE, dan OPTIONS pada file web.php dengan code seperti ini,<br>
 
-      ```
+      ```javascript
       ...
       $router->post('/post', function () {
       return 'POST';
@@ -62,7 +62,7 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
   ![Hasil Screenshot](../prak4/img10.jpg)<br>
 
   - Kemudian ubah konfigurasi database pada file .env   menjadi seperti ini <br>
-      ```
+      ```javascript
       DB_CONNECTION=mysql
       DB_HOST=127.0.0.1
       DB_PORT=3306
@@ -73,18 +73,18 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
       ![Hasil Screenshot](../prak4/img11.jpg)<br>
 
   - Setelah mengubah konfigurasi pada file .env, kita juga perlu menghidupkan beberapa library bawaan dari lumen dengan membuka file app.php pada folder bootstrap dan mengubah baris ini, <br>
-      ```
+      ```javascript
       //$app->withFacades();
       //$app->withEloquent();
       ```
       Menjadi, <br>
-      ```
+      ```javascript
       $app->withFacades();
       $app->withEloquent();
       ```
       ![Hasil Screenshot](../prak4/img12.jpg) <br>
   - Setelah itu jalankan command berikut untuk membuat file migration,<br>
-      ```
+      ```javascript
       php artisan make:migration create_users_table # membuat migrasi untuk tabel users
 
       php artisan make:migration create_products_table # membuat migrasi untuk tabel products
@@ -94,7 +94,7 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
       Setelah menjalankan 2 syntax diatas akan terbuat 2 file pada folder ```database/migrations``` dengan format YYYY_MM_DD_HHmmss_nama_migrasi. Pada file migrasi kita akan menemukan fungsi up() dan fungsi down(), fungsi up() akan digunakan pada saat kita melakukan migrasi, fungsi down() akan digunakan saat kita ingin me-rollback migrasi. <br>
 
   - Ubah fungsi up pada file migrasi ```create_users_table``` <br>
-    ```
+    ```javascript
     # sebelumnya
     ...
       public function up()
@@ -122,7 +122,7 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
     ![Hasil Screenshot](../prak4/img14.jpg) <br>
 
 - Ubah fungsi up pada file migrasi ```create_products_table``` <br>
-  ```
+  ```javascript
   # sebelumnya
   ...
     public function up()
@@ -153,7 +153,7 @@ Database Migration merupakan proses memindahkan data dari suatu sumber database 
   ![Hasil Screenshot](../prak4/img15.jpg) <br>
 
 - Kemudian jalankan command,
-    ```
+    ```javascript
     php artisan migrate
     ```
     ![Hasil Screenshot](../prak4/img16.jpg) <br>

@@ -13,7 +13,7 @@ Setelah mengikuti praktikum ini, mahasiswa diharapkan dapat:
 Model merupakan bagian yang bertugas untuk menyiapkan, mengatur, memanipulasi, dan mengorganisasikan data yang ada di database. Model merepresentasikan kolom 
 apa saja yang ada pada databas, termasuk relasi dan primary key dapat didefinisikan di dalam model. Dengan menggunakan perintah Artisan, pembuatan model pada Laravel dapat dilakukan dengan satu perintah menggunakan
 
-```
+```javascript
 php artisan make:model nama_model
 ```
 
@@ -54,7 +54,7 @@ header.
     </table>
 2. Bersihkan isi User.php yang ada sebelumnya dan isi dengan baris kode berikut : 
 
-    ```
+    ```javascript
     <?php
     namespace App\Models;
     use Illuminate\Database\Eloquent\Model;
@@ -81,7 +81,7 @@ header.
 ### Controller 
 1. Buatlah salinan ExampleController.php pada folder app/Http/Controllers dengan nama HomeController.php dan buatlah fungsi index() yang berisi:
 
-    ```
+    ```javascript
     <?php
     namespace App\Http\Controllers;
     class HomeController extends Controller
@@ -109,7 +109,7 @@ header.
 
 2. Ubah route / pada file routes/web.php menjadi seperti ini:
 
-    ```
+    ```javascript
     # Sebelum,
     $router->get('/', function () use ($router) {
       return $router->app->version();
@@ -126,7 +126,7 @@ header.
 ### Request Handler
 1. Lakukan import library Request dengan menambahkan baris berikut di bagian atas file
 
-    ```
+    ```javascript
     <?php
     namespace App\Http\Controllers;
 
@@ -138,7 +138,7 @@ header.
 
 2. Ubah fungsi index menjadi:
 
-    ```
+    ```javascript
     <?php
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
@@ -170,7 +170,7 @@ header.
 ### Response Handler
 1. Lakukan import library Response dengan menambahkan baris berikut di bagian atas file
 
-    ```
+    ```javascript
     <?php
     namespace App\Http\Controllers;
 
@@ -182,7 +182,7 @@ header.
 
 2. Buatlah fungsi hello() yang berisi
 
-    ```
+    ```javascript
     <?php
     namespace App\Http\Controllers;
 
@@ -218,7 +218,7 @@ header.
 
 3. Tambahkan route /hello pada file routes/web.php
 
-    ```
+    ```javascript
     <?php
     $router->get('/', ['uses' => 'HomeController@index']);
     $router->get('/hello', ['uses' => 'HomeController@hello']); // route hello
@@ -231,7 +231,7 @@ header.
 ### Penerapan 
 1. Lakukan import model User dengan menambahkan baris berikut di bagian atas file
 
-    ```
+    ```javascript
     <?php
     namespace App\Http\Controllers;
 
@@ -243,7 +243,7 @@ header.
 
 2. Tambahkan ketiga fungsi berikut di HomeController.php
 
-    ```
+    ```javascript
     <?php
     namespace App\Http\Controllers;
 
@@ -313,7 +313,7 @@ header.
 
 3. Tambahkan ketiga route pada file routes/web.php menggunakan group route
 
-    ```
+    ```javascript
     $router->get('/', ['uses' => 'HomeController@index']);
     $router->get('/hello', ['uses' => 'HomeController@hello']);
     // Tiga Route
