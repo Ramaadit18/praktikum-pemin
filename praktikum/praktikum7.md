@@ -596,7 +596,7 @@ bootstrap dan mengubah baris ini :
         $router->post('/', ['uses' => 'TagController@createTag']);
     });
     ```
-    ![Hasil Screenshot](../prak7/25.jpg) <br>
+    ![Hasil Screenshot](../prak7/img25.jpg) <br>
 
 6. Buatlah satu tag menggunakan Postman
 
